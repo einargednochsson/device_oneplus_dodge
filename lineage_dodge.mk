@@ -13,8 +13,29 @@ $(call inherit-product, device/oneplus/dodge/device.mk)
 
 # Inherit some common Lineage stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
-DERPFEST_BUILD_TYPE := Official
-TARGET_SUPPORTS_QUICK_TAP := true
+TARGET_INCLUDE_AXFX := true
+TARGET_SUPPORTED_REFRESH_RATES := 60,90,120
+
+# LineageOS apps
+ifneq ($(WITH_GMS),true)
+TARGET_INCLUDES_LOS_PREBUILTS := true
+endif
+
+# BCR
+TARGET_PREBUILT_BCR := true
+
+# Charging
+BYPASS_CHARGE_SUPPORTED := false
+
+# Camera information (multiple sensors supported)
+AXION_CAMERA_REAR_INFO := 50,50,50
+AXION_CAMERA_FRONT_INFO := 32
+
+# Maintainer name (underscores become spaces in the UI)
+AXION_MAINTAINER := Einar_Gednochsson
+
+# Processor name (underscores become spaces)
+AXION_PROCESSOR := Snapdragon_8_Elite
 
 PRODUCT_NAME := lineage_dodge
 PRODUCT_DEVICE := dodge
