@@ -15,6 +15,13 @@ $(call inherit-product, device/oneplus/dodge/device.mk)
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 TARGET_INCLUDE_AXFX := true
 TARGET_SUPPORTED_REFRESH_RATES := 60,90,120
+LINEAGE_VERSION_APPEND_TIME_OF_DAY := true
+
+# Blur
+TARGET_ENABLE_BLUR := true
+
+# Flashlight strength
+TORCH_STR_SUPPORTED := true
 
 # LineageOS apps
 ifneq ($(WITH_GMS),true)
